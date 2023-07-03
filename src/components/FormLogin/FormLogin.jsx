@@ -24,12 +24,10 @@ export const FormLogin = () => {
     dispatch(loginThunk({ email, password }))
       .unwrap()
       .then(() => {
-        console.log('Welcome');
         // toast.success('Welcome');
       })
       .catch(() => toast.error('Error login'));
 
-    console.log('REGISTER email, password', email, password);
   };
 
   return (

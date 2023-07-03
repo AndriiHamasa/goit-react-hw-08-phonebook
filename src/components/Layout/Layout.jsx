@@ -7,19 +7,20 @@ import { getProfileThunk } from 'redux/auth/thunks';
 import { setToken } from 'api/auth';
 
 export const Layout = () => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const { token, profile } = useSelector(state => state.auth)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { token, profile } = useSelector(state => state.auth);
   useEffect(() => {
     if (token && !profile) {
-      setToken(token)
-      dispatch(getProfileThunk())
+      setToken(token);
+      dispatch(getProfileThunk());
     }
-  }, [dispatch, navigate, profile, token])
+  }, [dispatch, navigate, profile, token]);
   return (
     <>
+      
       <Header />
-      <Toaster/>
+      <Toaster />
       <Outlet />
     </>
   );
