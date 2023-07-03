@@ -4,8 +4,8 @@ import { loginThunk } from 'redux/auth/thunks';
 import { Link as RouterLink } from 'react-router-dom';
 import Link from '@mui/joy/Link';
 import { Button, Stack } from '@mui/material';
-import { Textarea } from '@mui/joy';
 import { useState } from 'react';
+import OutlinedInput from '@mui/material/OutlinedInput';
 
 export const FormLogin = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,8 @@ export const FormLogin = () => {
     dispatch(loginThunk({ email, password }))
       .unwrap()
       .then(() => {
-        toast.success('Welcome');
+        console.log('Welcome');
+        // toast.success('Welcome');
       })
       .catch(() => toast.error('Error login'));
 
@@ -42,28 +43,26 @@ export const FormLogin = () => {
           spacing={4}
         >
           <div>
-            <label htmlFor="exampleInputEmail1">
-              Email address
-              <Textarea
-                name="email"
-                type="email"
-                id="exampleInputEmail1"
-                onChange={handleChange}
-              />
-            </label>
+            <div><label htmlFor="exampleInputEmail1">Email</label></div>
+            <OutlinedInput
+              type="email"
+              name="email"
+              size="small"
+              id="exampleInputEmail1"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <div><label htmlFor="exampleInputPassword1">Password</label></div>
+            <OutlinedInput
+              type="password"
+              size="small"
+              name="password"
+              id="exampleInputPassword1"
+              onChange={handleChange}
+            />
           </div>
 
-          <div>
-            <label htmlFor="exampleInputPassword1">
-              Password
-              <Textarea
-                name="password"
-                type="password"
-                id="exampleInputPassword1"
-                onChange={handleChange}
-              />
-            </label>
-          </div>
           <Stack direction="row" spacing={2}>
             <Button
               variant="outlined"

@@ -2,8 +2,8 @@ import { signUp } from 'api/auth';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
-import { Link, Textarea } from '@mui/joy';
-import { Button, Stack } from '@mui/material';
+import { Link } from '@mui/joy';
+import { Button, OutlinedInput, Stack } from '@mui/material';
 
 export const FormRegister = () => {
   const navigate = useNavigate();
@@ -34,39 +34,40 @@ export const FormRegister = () => {
           alignItems="center"
           spacing={4}
         >
-          <div>
-            <label htmlFor="name">
-              Name
-              <Textarea
-                name="name"
-                type="text"
-                id="name"
-                onChange={handleChange}
-              />
-            </label>
+           
+          <div> 
+            <div><label htmlFor="name">Name</label></div>
+            <OutlinedInput
+              type="text"
+              name="name"
+              size="small"
+              id="name"
+              onChange={handleChange}
+            />
           </div>
+          
           <div>
-            <label htmlFor="exampleInputEmail1">
-              Email address
-              <Textarea
-                name="email"
-                type="email"
-                id="exampleInputEmail1"
-                onChange={handleChange}
-              />
-            </label>
+            <div><label htmlFor="exampleInputEmail1">Email</label></div>
+            <OutlinedInput
+              type="email"
+              name="email"
+              size="small"
+              id="exampleInputEmail1"
+              onChange={handleChange}
+            />
           </div>
+          
 
+          
           <div>
-            <label htmlFor="exampleInputPassword1">
-              Password
-              <Textarea
-                name="password"
-                type="password"
-                id="exampleInputPassword1"
-                onChange={handleChange}
-              />
-            </label>
+            <div><label htmlFor="exampleInputPassword1">Password</label></div>
+            <OutlinedInput
+              type="password"
+              name="password"
+              size="small"
+              id="exampleInputPassword1"
+              onChange={handleChange}
+            />
           </div>
 
           <Stack direction="row" spacing={2}>
