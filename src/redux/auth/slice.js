@@ -18,14 +18,12 @@ const handleRejected = (state, {error, payload}) => {
 
 const handleLogInFulfilled = (state, {payload}) => {
   state.isLoading = false;
-  console.log('payload', payload)
   state.error = '';
   state.token = payload.token;
 };
 
 const handleGetPrifileFulfilled = (state, {payload}) => {
   state.isLoading = false;
-  console.log('payload', payload)
   state.error = '';
   state.profile = payload;
 };
@@ -37,9 +35,16 @@ const handleLogOutFulfilled = (state) => {
   state.profile = null
 };
 
-const handlesignUpThunkFulfilled = (state, {payload}) => {
-  
+const handleSignUpThunkFulfilled = (state, { payload }) => {
+  state.isLoading = false
+  state.token = payload.token
+  state.error = ''
+  state.profile = payload.user
 }
+
+// const handlesignUpThunkFulfilled = (state, {payload}) => {
+//   // const a = ''
+// }
 
 const authSlice = createSlice({
   name: 'auth',
@@ -49,7 +54,8 @@ const authSlice = createSlice({
       .addCase(loginThunk.fulfilled, handleLogInFulfilled)
       .addCase(getProfileThunk.fulfilled, handleGetPrifileFulfilled)
       .addCase(logOutThunk.fulfilled, handleLogOutFulfilled)
-      .addCase(signUpThunk.fulfilled, handlesignUpThunkFulfilled) 
+      // .addCase(signUpThunk.fulfilled, handlesignUpThunkFulfilled) 
+      .addCase(signUpThunk.fulfilled, handleSignUpThunkFulfilled)
       .addMatcher(({ type }) => type.endsWith('/pending', handlePending))
       .addMatcher(({type}) => type.endsWith('/rejected', handleRejected));
   },

@@ -1,12 +1,14 @@
-import { signUp } from 'api/auth';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
 import { Link } from '@mui/joy';
 import { Button, OutlinedInput, Stack, Typography } from '@mui/material';
+import { signUpThunk } from 'redux/auth/thunks';
+import { useDispatch } from 'react-redux';
 
 export const FormRegister = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [name, setName] = useState(null);
@@ -20,8 +22,8 @@ export const FormRegister = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    signUp({ name, email, password }).then(() => {
-      navigate('/login');
+    dispatch(signUpThunk({ name, email, password })).unwrap().then(() => {
+      navigate('/');
     });
   };
   return (

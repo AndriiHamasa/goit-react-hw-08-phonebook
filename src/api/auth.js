@@ -14,8 +14,11 @@ export const delToken = () => {
 
 
 export const signUp = async body => {
-  const response = await instance.post('/users/signup', body);
-  return response;
+  const { data } = await instance.post('/users/signup', body);
+  setToken(data.token)
+  
+  console.log('response from signUp =>> ', data)
+  return data;
 };
 
 export const logIn = async body => {

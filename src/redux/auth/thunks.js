@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getProfile, logIn, logOut, signUp } from 'api/auth';
 
+
+
 export const getProfileThunk = createAsyncThunk('auth/profile', () => {
   return getProfile();
 });
