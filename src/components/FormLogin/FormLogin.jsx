@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { loginThunk } from 'redux/auth/thunks';
 import { Link as RouterLink } from 'react-router-dom';
 import Link from '@mui/joy/Link';
-import { Button, Stack } from '@mui/material';
+import { Button, Stack, Typography } from '@mui/material';
 import { useState } from 'react';
 import OutlinedInput from '@mui/material/OutlinedInput';
 
@@ -34,7 +34,9 @@ export const FormLogin = () => {
 
   return (
     <>
-      <h2>Log In</h2>
+      <Typography variant="h4" align="center" style={{marginTop: 60, marginBottom: 20}}>
+        Log In
+      </Typography>
       <form onSubmit={handleSubmit}>
         <Stack
           direction="column"
@@ -43,7 +45,9 @@ export const FormLogin = () => {
           spacing={4}
         >
           <div>
-            <div><label htmlFor="exampleInputEmail1">Email</label></div>
+            <div>
+              <label htmlFor="exampleInputEmail1">Email</label>
+            </div>
             <OutlinedInput
               type="email"
               name="email"
@@ -53,7 +57,9 @@ export const FormLogin = () => {
             />
           </div>
           <div>
-            <div><label htmlFor="exampleInputPassword1">Password</label></div>
+            <div>
+              <label htmlFor="exampleInputPassword1">Password</label>
+            </div>
             <OutlinedInput
               type="password"
               size="small"

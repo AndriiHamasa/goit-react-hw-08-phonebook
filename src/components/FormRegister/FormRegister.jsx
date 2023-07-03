@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
 import { Link } from '@mui/joy';
-import { Button, OutlinedInput, Stack } from '@mui/material';
+import { Button, OutlinedInput, Stack, Typography } from '@mui/material';
 
 export const FormRegister = () => {
   const navigate = useNavigate();
@@ -26,7 +26,13 @@ export const FormRegister = () => {
   };
   return (
     <>
-      <h2>Sign Up</h2>
+      <Typography
+        variant="h4"
+        align="center"
+        style={{ marginTop: 60, marginBottom: 20 }}
+      >
+        Sign Up
+      </Typography>
       <form onSubmit={handleSubmit}>
         <Stack
           direction="column"
@@ -34,9 +40,10 @@ export const FormRegister = () => {
           alignItems="center"
           spacing={4}
         >
-           
-          <div> 
-            <div><label htmlFor="name">Name</label></div>
+          <div>
+            <div>
+              <label htmlFor="name">Name</label>
+            </div>
             <OutlinedInput
               type="text"
               name="name"
@@ -45,9 +52,11 @@ export const FormRegister = () => {
               onChange={handleChange}
             />
           </div>
-          
+
           <div>
-            <div><label htmlFor="exampleInputEmail1">Email</label></div>
+            <div>
+              <label htmlFor="exampleInputEmail1">Email</label>
+            </div>
             <OutlinedInput
               type="email"
               name="email"
@@ -56,11 +65,11 @@ export const FormRegister = () => {
               onChange={handleChange}
             />
           </div>
-          
 
-          
           <div>
-            <div><label htmlFor="exampleInputPassword1">Password</label></div>
+            <div>
+              <label htmlFor="exampleInputPassword1">Password</label>
+            </div>
             <OutlinedInput
               type="password"
               name="password"
