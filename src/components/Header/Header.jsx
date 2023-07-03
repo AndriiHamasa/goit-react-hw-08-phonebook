@@ -13,6 +13,7 @@ export const Header = () => {
   const handleLogOut = () => {
     dispatch(logOutThunk());
     delToken();
+    navigate('/')
   };
   const handleLogIn = () => {
     navigate('/login');
